@@ -25,7 +25,7 @@ export default function Navbar() {
   const handleLogout = async () => {
     try {
       await api.post(
-        "/api/auth/logout",
+        `/api/auth/logout`,
         {},
         {
           withCredentials: true,
