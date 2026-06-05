@@ -35,7 +35,7 @@ export default function MusicPlayer() {
 
         const response =
           await api.get(
-            `https://emotionmusic.onrender.com/api/music/${dominantEmotion}`,
+            `/api/music/${dominantEmotion}`,
             {
               withCredentials: true,
             }
