@@ -42,9 +42,8 @@ const register = async (req, res) => {
 
         res.cookie("token", token, {
             httpOnly: true,
-            secure: process.env.NODE_ENV === "production",
-            sameSite: "strict",
-            maxAge: 60 * 60 * 1000 
+            secure: true,
+            sameSite: "none", 
         });
 
         const user = await UserModel.findById(newUser._id)
@@ -101,7 +100,11 @@ const login = async (req, res) => {
 
         const token = generateToken(user._id);
 
-        res.cookie("token", token);
+        res.cookie("token", token, {
+            httpOnly: true,
+            secure: true,
+            sameSite: "none",
+        });
 
         const userData = user.toObject();
         delete userData.password;
