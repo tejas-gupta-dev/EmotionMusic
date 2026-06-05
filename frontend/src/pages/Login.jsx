@@ -30,7 +30,7 @@ export default function Login() {
       setMessage("");
 
       const response = await api.post(
-        "http://localhost:3000/api/auth/login",
+        `/api/auth/login`,
         formData,
         {
           withCredentials: true,
